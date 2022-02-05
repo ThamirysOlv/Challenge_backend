@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_login import LoginManager
+import os
 
 
 
@@ -16,7 +17,7 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost/challenge'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = "secret_key"
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev_key'
 
     db.init_app(app)
     migrate.init_app(app,db)
@@ -41,7 +42,7 @@ def create_app():
     lm = LoginManager()
     lm.login_view = "auth.login"
     lm.init_app(app)
-    
+
     from models.login_models import User
     @lm.user_loader
     def load_user(user_id):
