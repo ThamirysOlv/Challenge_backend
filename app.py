@@ -15,7 +15,8 @@ ma = Marshmallow()
 def create_app():
     app = fl.Flask(__name__)
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@localhost/challenge'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@db:3306/challenge'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@db/challenge'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev_key'
 
@@ -48,9 +49,11 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
+    #db.create_all()
     return app
 
 # If we're running in stand alone mode, run the application
 if __name__ == '__main__':
     # debug=True shows on the page any errors that may occur
-    create_app().run(debug=True)
+    # SQLAlchemy(create_app()).create_all()
+    create_app().run(debug=True, host='0.0.0.0')

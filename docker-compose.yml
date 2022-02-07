@@ -1,0 +1,32 @@
+version: "3"
+   
+services:
+  db:
+    image: mysql:8.0.27
+    restart: always
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=challenge
+    ports:
+      - 127.0.0.1:3307:3306
+    networks:
+      - api
+
+  api:
+    build: .
+    volumes:
+      - .:/app
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+    # host:container ports
+      - "5000:5000"
+    networks:
+      - api
+
+networks:
+  api:
+    driver: bridge
