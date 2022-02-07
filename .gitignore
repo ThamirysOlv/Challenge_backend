@@ -5,3 +5,4 @@ challenge.txt
 migrations
 migrations/
 venv
+.gitignore
