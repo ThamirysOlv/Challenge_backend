@@ -1,4 +1,4 @@
-# Desafio backend alura
+# Desafio back-end alura
 
 Objetivo: criar uma api para controle de orçamento.
 
