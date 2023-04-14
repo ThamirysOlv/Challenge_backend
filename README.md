@@ -1,7 +1,8 @@
-# Desafio back-end alura
+# Desafio back-end alura / Challenge back-end alura
 
 Objetivo: criar uma api para controle de orçamento.
+Goal: to create an api for budget control.
 
 
-
-Crie container: docker-compose up --build e acesse http://localhost:5000/
+To run:
+Create container: docker-compose up --build and access http://localhost:5000/
