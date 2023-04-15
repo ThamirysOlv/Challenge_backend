@@ -1,4 +1,4 @@
-# <pt-BR> Desafio back-end alura / Challenge backend alura
+# \<pt-BR> Desafio back-end alura / Challenge backend alura
 
 Objetivo: criar uma api para controle de orçamento.
 
