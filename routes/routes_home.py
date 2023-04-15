@@ -8,6 +8,8 @@ home_route = fl.Blueprint('home_route', __name__)
 def home():
     render_html = """<h1>Olá!</h1>
     <h2>Faça login em /login ou signup em /signup</h2>
+    <h2>Para login entre email e senha </h2>
+    <h2>Para signup entre email, nome, e senha </h2>
     """
     return render_html
 
